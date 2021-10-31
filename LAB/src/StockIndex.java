@@ -1,5 +1,3 @@
-import haw.datatypes.QuickSort;
-import haw.datatypes.SelectionSort;
 import haw.datatypes.Stock;
 
 import java.util.ArrayList;
@@ -21,18 +19,22 @@ public class StockIndex {
             stringBuilder.append((char)(rand.nextInt(26) + 'A'));
             String name = stringBuilder.toString();
             double price = rand.nextDouble() * 100;
-            newIndex.add(new Stock(name, price));
+            double allTimeHigh = rand.nextDouble() * 100;
+            int volume = rand.nextInt(100000);
+            newIndex.add(new Stock(name, price, allTimeHigh, volume));
         }
         return newIndex;
     }
-    public static void printIndex(ArrayList<Stock> index){
-        for (Stock stock : index){
-            System.out.printf("Name = %s Price = $%.2f\n", stock.getName(), stock.getPrice());
+    public void printIndex(){
+        System.out.printf("Name |  Price |  ATH  | Volume |\n");
+        for (Stock stock : stocks){
+            System.out.printf("%s  | $%5.2f | %5.2f | %6d |\n", stock.getName(), stock.getPrice(), stock.getAllTimeHigh(), stock.getVolume());
         }
     }
 
     public void sort() {
-        stocks = QuickSort.sort(stocks, 0);
+        SelectionSort selectionSort = new SelectionSort();
+        stocks = selectionSort.sort(stocks);
     }
 }
 
