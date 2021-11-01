@@ -5,6 +5,7 @@ public class Stock implements Node{
     private double price;
     private double allTimeHigh;
     private int volume;
+    private int index;
     public Stock(String name, double price, double allTimeHigh, int volume){
         this.name = name;
         this.price = price;
@@ -13,8 +14,14 @@ public class Stock implements Node{
     }
     @Override
     public int getKey() {
-        return (int) price * 10;
+        return (int) price * 1000;
     }
+
+    @Override
+    public int getIndex() {
+        return index;
+    }
+
     public String getName() {
         return name;
     }

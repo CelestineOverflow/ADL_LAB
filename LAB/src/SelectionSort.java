@@ -1,24 +1,27 @@
+import haw.datatypes.Node;
+import haw.datatypes.NodeIndex;
 import haw.datatypes.Stock;
 
 import java.util.ArrayList;
 
-public class SelectionSort extends Sort {
-    public SelectionSort(){
-        super();
+public class SelectionSort extends AbstractSort {
+    public SelectionSort(ArrayList<? extends Node> nodes){
+        super.start(nodes);
     }
-    public ArrayList<Stock> sort(ArrayList<Stock> index) {
-        ArrayList<Stock> SortedIndex = new ArrayList<>();
-        while (!index.isEmpty()) {
-            int currentStockIndex = 0;
-            for (int i = 0; i < index.size(); i++) {
-                if (index.get(currentStockIndex).getKey() >= index.get(i).getKey()) currentStockIndex = i;
+
+    @Override
+    public ArrayList<NodeIndex> sortAlgorithm() {
+        ArrayList<NodeIndex> nodes = super.getNodeIndices();
+        int counter = 0;
+        while(counter < nodes.size()){
+            int currentMin = counter;
+            for (int i = counter; i < nodes.size(); i++){
+                if (nodes.get(currentMin).getKey() > nodes.get(i).getKey()) currentMin = i;
                 super.addComparisons();
             }
-            SortedIndex.add(index.get(currentStockIndex));
-            index.remove(currentStockIndex);
-            super.addSwaps();
+            super.swaps(nodes, counter, currentMin);
+            counter++;
         }
-        System.out.println("Selection Sort Comparisons = " + super.getComparisons() + " Swaps = " + super.getSwaps());
-        return SortedIndex;
+        return super.getNodeIndices();
     }
 }
