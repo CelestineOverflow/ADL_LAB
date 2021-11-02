@@ -35,4 +35,8 @@ public abstract class AbstractSort {
         nodeIndices.set(first, secondNode);
         nodeIndices.set(second, firstNode);
     }
+
+    public int getComparisons(){
+        return comparisons;
+    }
 }

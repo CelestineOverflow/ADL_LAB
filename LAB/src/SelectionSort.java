@@ -22,6 +22,7 @@ public class SelectionSort extends AbstractSort {
             super.swaps(nodes, counter, currentMin);
             counter++;
         }
+        System.out.printf("Number Of Comparisons = %d\n", super.getComparisons());
         return super.getNodeIndices();
     }
 }

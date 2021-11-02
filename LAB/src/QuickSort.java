@@ -14,6 +14,7 @@ public class QuickSort extends AbstractSort {
         int start = 0;
         int end = getNodeIndices().size() - 1;
         sort(super.getNodeIndices(), start, end);
+        System.out.printf("Number Of Comparisons = %d\n", super.getComparisons());
         return super.getNodeIndices();
     }
     private void sort(ArrayList<NodeIndex> nodes, int start, int end){
@@ -28,6 +29,7 @@ public class QuickSort extends AbstractSort {
         int i = start-1;
         for (int j = start; j<=end; j++){
             if (nodes.get(j).getKey()<pivot){
+                super.addComparisons();
                 i++;
                 NodeIndex t = nodes.get(i);
                 nodes.set(i, nodes.get(j));
