@@ -20,9 +20,10 @@ public class SelectionSort extends AbstractSort {
                 super.addComparisons();
             }
             super.swaps(nodes, counter, currentMin);
+            super.addSwaps();
             counter++;
         }
-        System.out.printf("Number Of Comparisons = %d\n", super.getComparisons());
+        System.out.printf("SS Comparisons= %d Swaps = %d ||", super.getComparisons(), super.getSwaps());
         return super.getNodeIndices();
     }
 }

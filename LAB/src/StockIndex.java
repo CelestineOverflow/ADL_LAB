@@ -7,9 +7,11 @@ import java.util.Random;
 public class StockIndex {
     private Random rand;
     private ArrayList<Stock> stocks;
+    private ArrayList<Integer> results;
     public StockIndex(int numberOfStocks){
         rand = new Random();
         stocks = generateIndex(numberOfStocks);
+        results = new ArrayList<>();
     }
     public ArrayList<Stock> generateIndex(int numOfStocks){
         ArrayList<Stock> newIndex = new ArrayList<>();
@@ -46,9 +48,19 @@ public class StockIndex {
 
     public void sort() {
         SelectionSort selectionSort = new SelectionSort(stocks);
-        printSorted(selectionSort.sortAlgorithm());
+        //printSorted(selectionSort.sortAlgorithm());
+        selectionSort.sortAlgorithm();
+        results.add(selectionSort.getComparisons());
+        results.add(selectionSort.getSwaps());
         QuickSort quickSort = new QuickSort(stocks);
-        printSorted(quickSort.sortAlgorithm());
+        //printSorted(quickSort.sortAlgorithm());
+        quickSort.sortAlgorithm();
+        results.add(quickSort.getComparisons());
+        results.add(quickSort.getSwaps());
     }
+    public ArrayList<Integer> getResults() {
+        return results;
+    }
+
 }
 
