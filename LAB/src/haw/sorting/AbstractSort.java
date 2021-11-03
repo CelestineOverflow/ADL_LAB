@@ -1,3 +1,5 @@
+package haw.sorting;
+
 import haw.datatypes.Node;
 import haw.datatypes.NodeIndex;
 
@@ -17,7 +19,7 @@ public abstract class AbstractSort {
 
     protected abstract ArrayList<NodeIndex> sortAlgorithm();
 
-    protected ArrayList<NodeIndex> getNodeIndices() {
+    public ArrayList<NodeIndex> getNodeIndices() {
         return nodeIndices;
     }
 

@@ -1,7 +1,10 @@
+package haw.sorting;
+
 import haw.datatypes.Node;
 import haw.datatypes.NodeIndex;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class QuickSort extends AbstractSort {
     public QuickSort(ArrayList<? extends Node> nodes) {
@@ -26,7 +29,7 @@ public class QuickSort extends AbstractSort {
     }
 
     private int middle(ArrayList<NodeIndex> nodes, int start, int end) {
-        return start + end / 2;
+        return (start + end) / 2;
     }
 
     private int partition(ArrayList<NodeIndex> nodes, int start, int end) {
@@ -41,14 +44,18 @@ public class QuickSort extends AbstractSort {
                 super.addSwaps();
             }
         }
-        super.swapsNode(nodes, i, start);//
+        super.swapsNode(nodes, i, start);
         super.addSwaps();
-        System.out.printf("I = %d\n", pivotIndex);
         return i;
     }
     private int partitionSwap(ArrayList<NodeIndex> nodes, int start, int end){//partition can be change by swapping the pivot point
-        int pivotIndex =  middle(nodes, start, end); //chooses middle point
-        super.swapsNode(nodes, pivotIndex, start);
+        int pivotIndex;
+        Random rand = new Random();
+        pivotIndex = rand.nextInt(end);
+        //pivotIndex = start;
+        //pivotIndex = end;
+        //pivotIndex =  middle(nodes, start, end); //chooses middle point
+        if(pivotIndex!=start) super.swapsNode(nodes, pivotIndex, start);
         return partition(nodes, start, end);
     }
 }

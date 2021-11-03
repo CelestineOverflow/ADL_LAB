@@ -1,5 +1,9 @@
+package haw.datatypes;
+
 import haw.datatypes.NodeIndex;
 import haw.datatypes.Stock;
+import haw.sorting.QuickSort;
+import haw.sorting.SelectionSort;
 
 import java.util.ArrayList;
 import java.util.Random;

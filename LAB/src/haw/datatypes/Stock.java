@@ -1,14 +1,10 @@
 package haw.datatypes;
 
-import java.util.ArrayList;
-
 public class Stock implements Node {
     private final StockName stockName;
     private final int price;
-    private ArrayList<RecordOfPrice> recordOfPrices;
     private final double allTimeHigh;
     private final int volume;
-    private int index;
 
     public Stock(int id, int price, double allTimeHigh, int volume) {
         this.stockName = new StockName(id);

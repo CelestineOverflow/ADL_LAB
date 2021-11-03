@@ -1,3 +1,5 @@
+package haw.sorting;
+
 import haw.datatypes.Node;
 import haw.datatypes.NodeIndex;
 

@@ -1,8 +1,10 @@
+import haw.datatypes.StockIndex;
+
 import java.util.ArrayList;
 
 public class Test {
-    private static final int NUMBER_OF_STOCKS = 10;
-    private static final int REPETITIONS = 1;
+    private static final int NUMBER_OF_STOCKS = 1000;
+    private static final int REPETITIONS = 1000;
     private StockIndex stockIndex;
     private int ssComparisons, ssSwaps, qsComparisons, qsSwaps;
 
@@ -32,7 +34,7 @@ public class Test {
     public void start() {
         stockIndex = new StockIndex(NUMBER_OF_STOCKS);
         stockIndex.printIndex();
-        stockIndex.sort();//Performs Selection Sort/QuickSort
+        stockIndex.sort();//Performs Selection Sort/haw.sorting.QuickSort
         results(stockIndex.getResults());
 
     }
