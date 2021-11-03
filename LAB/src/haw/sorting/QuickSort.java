@@ -50,11 +50,11 @@ public class QuickSort extends AbstractSort {
     }
     private int partitionSwap(ArrayList<NodeIndex> nodes, int start, int end){//partition can be change by swapping the pivot point
         int pivotIndex;
-        Random rand = new Random();
-        pivotIndex = rand.nextInt(end);
+        //Random rand = new Random();
+        //pivotIndex = rand.nextInt(end);
         //pivotIndex = start;
         //pivotIndex = end;
-        //pivotIndex =  middle(nodes, start, end); //chooses middle point
+        pivotIndex =  middle(nodes, start, end); //chooses middle point
         if(pivotIndex!=start) super.swapsNode(nodes, pivotIndex, start);
         return partition(nodes, start, end);
     }
